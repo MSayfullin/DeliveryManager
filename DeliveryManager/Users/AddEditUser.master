@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddEditUser.master.cs"
+    Inherits="DeliveryManager.Users.AddEditUser" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:Panel ID="AddEditPanel" runat="server" Visible="true">
+        <table width="100%">
+            <tr>
+                <td colspan="2">
+                    <asp:Label ID="Label" runat="server" Text="[PlaceHolder]"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" width="10%">
+                    Name:
+                </td>
+                <td>
+                    <asp:TextBox ID="NameTextBox" runat="server" Width="300px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="NameRequiredValidator" runat="server" ControlToValidate="NameTextBox"
+                        ErrorMessage="Name is required field" SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    Phone:
+                </td>
+                <td>
+                    <asp:TextBox ID="PhoneTextBox" runat="server" Width="300px" AutoCompleteType="Cellular"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="PhoneRequiredValidator" runat="server" ControlToValidate="PhoneTextBox"
+                        ErrorMessage="Phone is required field" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    E-mail:
+                </td>
+                <td>
+                    <asp:TextBox ID="EmailTextBox" runat="server" Width="300px" AutoCompleteType="Email"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <asp:Button ID="SaveButton" runat="server" Text="Save" Width="60px" OnClick="SaveButton_Click" />
+                    &nbsp;
+                    <input id="CancelButton" type="button" value="Cancel" onclick="javascript:history.back(); return false;"
+                        style="width: 60px" />
+                </td>
+            </tr>
+        </table>
+    </asp:Panel>
+    <asp:Panel ID="ErrorPanel" runat="server" Visible="false" HorizontalAlign="Center">
+        <asp:Label ID="ErrorLabel" runat="server" Text="[PlaceHolder]" ForeColor="Red"></asp:Label>
+    </asp:Panel>
+</asp:Content>

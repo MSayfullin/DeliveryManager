@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryManager", "DeliveryManager\DeliveryManager.csproj", "{EC052186-4326-4AE8-A75C-032F8CA81C80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{906466DD-7612-4E71-B9AC-2258DB78988C}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\USLogo.jpg = Resources\USLogo.jpg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLScripts", "SQLScripts", "{47681D5E-F13B-41AF-A9B5-5712312FBBED}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\SQLScripts\CreateInitialData.sql = Resources\SQLScripts\CreateInitialData.sql
+		Resources\SQLScripts\DMModel.edmx.sql = Resources\SQLScripts\DMModel.edmx.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dbo.objects", "dbo.objects", "{BBE05D4C-7D0E-4C3D-873A-98D1A050DBBA}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\SQLScripts\dbo.objects\combine_name.func.sql = Resources\SQLScripts\dbo.objects\combine_name.func.sql
+		Resources\SQLScripts\dbo.objects\CorrectionEntriesView.sql = Resources\SQLScripts\dbo.objects\CorrectionEntriesView.sql
+		Resources\SQLScripts\dbo.objects\DeliveryEntitiesView.sql = Resources\SQLScripts\dbo.objects\DeliveryEntitiesView.sql
+		Resources\SQLScripts\dbo.objects\DepotEntriesView.sql = Resources\SQLScripts\dbo.objects\DepotEntriesView.sql
+		Resources\SQLScripts\dbo.objects\get_delivery_info.proc.sql = Resources\SQLScripts\dbo.objects\get_delivery_info.proc.sql
+		Resources\SQLScripts\dbo.objects\get_sold_entries_as_of.func.sql = Resources\SQLScripts\dbo.objects\get_sold_entries_as_of.func.sql
+		Resources\SQLScripts\dbo.objects\get_sold_entries_for_range.func.sql = Resources\SQLScripts\dbo.objects\get_sold_entries_for_range.func.sql
+		Resources\SQLScripts\dbo.objects\get_sold_entries_with_corrections_as_of.func.sql = Resources\SQLScripts\dbo.objects\get_sold_entries_with_corrections_as_of.func.sql
+		Resources\SQLScripts\dbo.objects\get_sold_entries_with_corrections_for_range.func.sql = Resources\SQLScripts\dbo.objects\get_sold_entries_with_corrections_for_range.func.sql
+		Resources\SQLScripts\dbo.objects\OrderEntriesView.sql = Resources\SQLScripts\dbo.objects\OrderEntriesView.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC052186-4326-4AE8-A75C-032F8CA81C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC052186-4326-4AE8-A75C-032F8CA81C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC052186-4326-4AE8-A75C-032F8CA81C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC052186-4326-4AE8-A75C-032F8CA81C80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{47681D5E-F13B-41AF-A9B5-5712312FBBED} = {906466DD-7612-4E71-B9AC-2258DB78988C}
+		{BBE05D4C-7D0E-4C3D-873A-98D1A050DBBA} = {47681D5E-F13B-41AF-A9B5-5712312FBBED}
+	EndGlobalSection
+EndGlobal

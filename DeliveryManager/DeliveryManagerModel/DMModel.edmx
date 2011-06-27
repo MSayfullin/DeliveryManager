@@ -1,0 +1,1055 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DeliveryManagerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DeliveryManagerModelStoreContainer">
+    <EntitySet Name="Orders" EntityType="DeliveryManagerModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Deliveries" EntityType="DeliveryManagerModel.Store.Deliveries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeliveryEntities" EntityType="DeliveryManagerModel.Store.DeliveryEntities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="DeliveryManagerModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeliveryTypes" EntityType="DeliveryManagerModel.Store.DeliveryTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Depots" EntityType="DeliveryManagerModel.Store.Depots" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entries" EntityType="DeliveryManagerModel.Store.Entries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CorrectionTypes" EntityType="DeliveryManagerModel.Store.CorrectionTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Corrections" EntityType="DeliveryManagerModel.Store.Corrections" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users_Client" EntityType="DeliveryManagerModel.Store.Users_Client" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entries_DepotEntry" EntityType="DeliveryManagerModel.Store.Entries_DepotEntry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entries_OrderEntry" EntityType="DeliveryManagerModel.Store.Entries_OrderEntry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users_Courier" EntityType="DeliveryManagerModel.Store.Users_Courier" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entries_CorrectionEntry" EntityType="DeliveryManagerModel.Store.Entries_CorrectionEntry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeliveryEntities_Book" EntityType="DeliveryManagerModel.Store.DeliveryEntities_Book" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeliveryEntities_CD" EntityType="DeliveryManagerModel.Store.DeliveryEntities_CD" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ClientOrder" Association="DeliveryManagerModel.Store.ClientOrder">
+      <End Role="Client" EntitySet="Users_Client" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="DeliveryTypeDelivery" Association="DeliveryManagerModel.Store.DeliveryTypeDelivery">
+      <End Role="DeliveryType" EntitySet="DeliveryTypes" />
+      <End Role="Delivery" EntitySet="Deliveries" />
+    </AssociationSet>
+    <AssociationSet Name="DepotDepotEntry" Association="DeliveryManagerModel.Store.DepotDepotEntry">
+      <End Role="Depot" EntitySet="Depots" />
+      <End Role="DepotEntry" EntitySet="Entries_DepotEntry" />
+    </AssociationSet>
+    <AssociationSet Name="OrderOrderEntry" Association="DeliveryManagerModel.Store.OrderOrderEntry">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderEntry" EntitySet="Entries_OrderEntry" />
+    </AssociationSet>
+    <AssociationSet Name="DepotEntryOrderEntry" Association="DeliveryManagerModel.Store.DepotEntryOrderEntry">
+      <End Role="DepotEntry" EntitySet="Entries_DepotEntry" />
+      <End Role="OrderEntry" EntitySet="Entries_OrderEntry" />
+    </AssociationSet>
+    <AssociationSet Name="EntryDeliveryEntity" Association="DeliveryManagerModel.Store.EntryDeliveryEntity">
+      <End Role="Entry" EntitySet="Entries" />
+      <End Role="DeliveryEntity" EntitySet="DeliveryEntities" />
+    </AssociationSet>
+    <AssociationSet Name="OrderDelivery" Association="DeliveryManagerModel.Store.OrderDelivery">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Delivery" EntitySet="Deliveries" />
+    </AssociationSet>
+    <AssociationSet Name="DeliveryCourier" Association="DeliveryManagerModel.Store.DeliveryCourier">
+      <End Role="Delivery" EntitySet="Deliveries" />
+      <End Role="Courier" EntitySet="Users_Courier" />
+    </AssociationSet>
+    <AssociationSet Name="DepotEntryCorrectionEntry" Association="DeliveryManagerModel.Store.DepotEntryCorrectionEntry">
+      <End Role="DepotEntry" EntitySet="Entries_DepotEntry" />
+      <End Role="CorrectionEntry" EntitySet="Entries_CorrectionEntry" />
+    </AssociationSet>
+    <AssociationSet Name="CorrectionCorrectionEntry" Association="DeliveryManagerModel.Store.CorrectionCorrectionEntry">
+      <End Role="Correction" EntitySet="Corrections" />
+      <End Role="CorrectionEntry" EntitySet="Entries_CorrectionEntry" />
+    </AssociationSet>
+    <AssociationSet Name="CorrectionCorrectionType" Association="DeliveryManagerModel.Store.CorrectionCorrectionType">
+      <End Role="Correction" EntitySet="Corrections" />
+      <End Role="CorrectionType" EntitySet="CorrectionTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_inherits_User" Association="DeliveryManagerModel.Store.FK_Client_inherits_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Client" EntitySet="Users_Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepotEntry_inherits_Entry" Association="DeliveryManagerModel.Store.FK_DepotEntry_inherits_Entry">
+      <End Role="Entry" EntitySet="Entries" />
+      <End Role="DepotEntry" EntitySet="Entries_DepotEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderEntry_inherits_Entry" Association="DeliveryManagerModel.Store.FK_OrderEntry_inherits_Entry">
+      <End Role="Entry" EntitySet="Entries" />
+      <End Role="OrderEntry" EntitySet="Entries_OrderEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Courier_inherits_User" Association="DeliveryManagerModel.Store.FK_Courier_inherits_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Courier" EntitySet="Users_Courier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CorrectionEntry_inherits_Entry" Association="DeliveryManagerModel.Store.FK_CorrectionEntry_inherits_Entry">
+      <End Role="Entry" EntitySet="Entries" />
+      <End Role="CorrectionEntry" EntitySet="Entries_CorrectionEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_inherits_DeliveryEntity" Association="DeliveryManagerModel.Store.FK_Book_inherits_DeliveryEntity">
+      <End Role="DeliveryEntity" EntitySet="DeliveryEntities" />
+      <End Role="Book" EntitySet="DeliveryEntities_Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CD_inherits_DeliveryEntity" Association="DeliveryManagerModel.Store.FK_CD_inherits_DeliveryEntity">
+      <End Role="DeliveryEntity" EntitySet="DeliveryEntities" />
+      <End Role="CD" EntitySet="DeliveryEntities_CD" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="DeliveryId" Type="int" Nullable="true" />
+    <Property Name="WithoutDelivery" Type="bit" Nullable="false" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="Deliveries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Address_Details" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address_City" Type="nvarchar" Nullable="false" DefaultValue="Санкт-Петербург" MaxLength="300" />
+    <Property Name="Address_Country" Type="nvarchar" Nullable="false" DefaultValue="Россия" MaxLength="300" />
+    <Property Name="Address_ZipCode" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DeliveryTypeId" Type="int" Nullable="false" />
+    <Property Name="CourierId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="DeliveryEntities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="Price" Type="decimal" Nullable="false" Precision="18" Scale="4" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="FullName_Name" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="FullName_MiddleName" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="FullName_Surname" Type="nvarchar" Nullable="true" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="DeliveryTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="Cost" Type="decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="Depots">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Address_Details" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address_City" Type="nvarchar" Nullable="false" DefaultValue="Санкт-Петербург" MaxLength="300" />
+    <Property Name="Address_Country" Type="nvarchar" Nullable="false" DefaultValue="Россия" MaxLength="300" />
+    <Property Name="Address_ZipCode" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Entries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="DeliveryEntityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CorrectionTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="IsNegative" Type="bit" Nullable="false" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="Corrections">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="CorrectionTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users_Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entries_DepotEntry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="DepotId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entries_OrderEntry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="Price" Type="decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DepotEntry_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users_Courier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entries_CorrectionEntry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CorrectionId" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DepotEntry_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeliveryEntities_Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ISBN" Type="nvarchar" Nullable="true" MaxLength="120" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeliveryEntities_CD">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Format" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ClientOrder">
+    <End Role="Client" Type="DeliveryManagerModel.Store.Users_Client" Multiplicity="1" />
+    <End Role="Order" Type="DeliveryManagerModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DeliveryTypeDelivery">
+    <End Role="DeliveryType" Type="DeliveryManagerModel.Store.DeliveryTypes" Multiplicity="1" />
+    <End Role="Delivery" Type="DeliveryManagerModel.Store.Deliveries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Delivery">
+        <PropertyRef Name="DeliveryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepotDepotEntry">
+    <End Role="Depot" Type="DeliveryManagerModel.Store.Depots" Multiplicity="1" />
+    <End Role="DepotEntry" Type="DeliveryManagerModel.Store.Entries_DepotEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Depot">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepotEntry">
+        <PropertyRef Name="DepotId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderOrderEntry">
+    <End Role="Order" Type="DeliveryManagerModel.Store.Orders" Multiplicity="1" />
+    <End Role="OrderEntry" Type="DeliveryManagerModel.Store.Entries_OrderEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderEntry">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepotEntryOrderEntry">
+    <End Role="DepotEntry" Type="DeliveryManagerModel.Store.Entries_DepotEntry" Multiplicity="1" />
+    <End Role="OrderEntry" Type="DeliveryManagerModel.Store.Entries_OrderEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepotEntry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderEntry">
+        <PropertyRef Name="DepotEntry_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EntryDeliveryEntity">
+    <End Role="Entry" Type="DeliveryManagerModel.Store.Entries" Multiplicity="*" />
+    <End Role="DeliveryEntity" Type="DeliveryManagerModel.Store.DeliveryEntities" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryEntity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Entry">
+        <PropertyRef Name="DeliveryEntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderDelivery">
+    <End Role="Order" Type="DeliveryManagerModel.Store.Orders" Multiplicity="*" />
+    <End Role="Delivery" Type="DeliveryManagerModel.Store.Deliveries" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="DeliveryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DeliveryCourier">
+    <End Role="Delivery" Type="DeliveryManagerModel.Store.Deliveries" Multiplicity="*" />
+    <End Role="Courier" Type="DeliveryManagerModel.Store.Users_Courier" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Courier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Delivery">
+        <PropertyRef Name="CourierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepotEntryCorrectionEntry">
+    <End Role="DepotEntry" Type="DeliveryManagerModel.Store.Entries_DepotEntry" Multiplicity="1" />
+    <End Role="CorrectionEntry" Type="DeliveryManagerModel.Store.Entries_CorrectionEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepotEntry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CorrectionEntry">
+        <PropertyRef Name="DepotEntry_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CorrectionCorrectionEntry">
+    <End Role="Correction" Type="DeliveryManagerModel.Store.Corrections" Multiplicity="1" />
+    <End Role="CorrectionEntry" Type="DeliveryManagerModel.Store.Entries_CorrectionEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Correction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CorrectionEntry">
+        <PropertyRef Name="CorrectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CorrectionCorrectionType">
+    <End Role="Correction" Type="DeliveryManagerModel.Store.Corrections" Multiplicity="*" />
+    <End Role="CorrectionType" Type="DeliveryManagerModel.Store.CorrectionTypes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CorrectionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Correction">
+        <PropertyRef Name="CorrectionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_inherits_User">
+    <End Role="User" Type="DeliveryManagerModel.Store.Users" Multiplicity="1" />
+    <End Role="Client" Type="DeliveryManagerModel.Store.Users_Client" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepotEntry_inherits_Entry">
+    <End Role="Entry" Type="DeliveryManagerModel.Store.Entries" Multiplicity="1" />
+    <End Role="DepotEntry" Type="DeliveryManagerModel.Store.Entries_DepotEntry" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Entry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepotEntry">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderEntry_inherits_Entry">
+    <End Role="Entry" Type="DeliveryManagerModel.Store.Entries" Multiplicity="1" />
+    <End Role="OrderEntry" Type="DeliveryManagerModel.Store.Entries_OrderEntry" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Entry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderEntry">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Courier_inherits_User">
+    <End Role="User" Type="DeliveryManagerModel.Store.Users" Multiplicity="1" />
+    <End Role="Courier" Type="DeliveryManagerModel.Store.Users_Courier" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Courier">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CorrectionEntry_inherits_Entry">
+    <End Role="Entry" Type="DeliveryManagerModel.Store.Entries" Multiplicity="1" />
+    <End Role="CorrectionEntry" Type="DeliveryManagerModel.Store.Entries_CorrectionEntry" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Entry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CorrectionEntry">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_inherits_DeliveryEntity">
+    <End Role="DeliveryEntity" Type="DeliveryManagerModel.Store.DeliveryEntities" Multiplicity="1" />
+    <End Role="Book" Type="DeliveryManagerModel.Store.DeliveryEntities_Book" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryEntity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CD_inherits_DeliveryEntity">
+    <End Role="DeliveryEntity" Type="DeliveryManagerModel.Store.DeliveryEntities" Multiplicity="1" />
+    <End Role="CD" Type="DeliveryManagerModel.Store.DeliveryEntities_CD" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryEntity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CD">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DeliveryManagerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="DeliveryManagerModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Orders" EntityType="DeliveryManagerModel.Order" />
+          <EntitySet Name="Deliveries" EntityType="DeliveryManagerModel.Delivery" />
+          <EntitySet Name="DeliveryEntities" EntityType="DeliveryManagerModel.DeliveryEntity" />
+          <EntitySet Name="Users" EntityType="DeliveryManagerModel.User" />
+          <AssociationSet Name="ClientOrder" Association="DeliveryManagerModel.ClientOrder">
+            <End Role="Client" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <EntitySet Name="DeliveryTypes" EntityType="DeliveryManagerModel.DeliveryType" />
+          <EntitySet Name="Depots" EntityType="DeliveryManagerModel.Depot" />
+          <AssociationSet Name="DeliveryTypeDelivery" Association="DeliveryManagerModel.DeliveryTypeDelivery">
+            <End Role="DeliveryType" EntitySet="DeliveryTypes" />
+            <End Role="Delivery" EntitySet="Deliveries" />
+          </AssociationSet>
+          <EntitySet Name="Entries" EntityType="DeliveryManagerModel.Entry" />
+          <AssociationSet Name="DepotDepotEntry" Association="DeliveryManagerModel.DepotDepotEntry">
+            <End Role="Depot" EntitySet="Depots" />
+            <End Role="DepotEntry" EntitySet="Entries" />
+          </AssociationSet>
+          <AssociationSet Name="OrderOrderEntry" Association="DeliveryManagerModel.OrderOrderEntry">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderEntry" EntitySet="Entries" />
+          </AssociationSet>
+          <AssociationSet Name="DepotEntryOrderEntry" Association="DeliveryManagerModel.DepotEntryOrderEntry">
+            <End EntitySet="Entries" Role="DepotEntry" />
+            <End EntitySet="Entries" Role="OrderEntry" />
+          </AssociationSet>
+          <AssociationSet Name="EntryDeliveryEntity" Association="DeliveryManagerModel.EntryDeliveryEntity">
+            <End Role="Entry" EntitySet="Entries" />
+            <End Role="DeliveryEntity" EntitySet="DeliveryEntities" />
+          </AssociationSet>
+          <AssociationSet Name="OrderDelivery" Association="DeliveryManagerModel.OrderDelivery">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Delivery" EntitySet="Deliveries" />
+          </AssociationSet>
+          <AssociationSet Name="DeliveryCourier" Association="DeliveryManagerModel.DeliveryCourier">
+            <End Role="Delivery" EntitySet="Deliveries" />
+            <End Role="Courier" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="DepotEntryCorrectionEntry" Association="DeliveryManagerModel.DepotEntryCorrectionEntry">
+            <End Role="DepotEntry" EntitySet="Entries" />
+            <End Role="CorrectionEntry" EntitySet="Entries" />
+          </AssociationSet>
+          <EntitySet Name="CorrectionTypes" EntityType="DeliveryManagerModel.CorrectionType" />
+          <EntitySet Name="Corrections" EntityType="DeliveryManagerModel.Correction" />
+          <AssociationSet Name="CorrectionCorrectionEntry" Association="DeliveryManagerModel.CorrectionCorrectionEntry">
+            <End Role="Correction" EntitySet="Corrections" />
+            <End Role="CorrectionEntry" EntitySet="Entries" />
+          </AssociationSet>
+          <AssociationSet Name="CorrectionCorrectionType" Association="DeliveryManagerModel.CorrectionCorrectionType">
+            <End Role="Correction" EntitySet="Corrections" />
+            <End Role="CorrectionType" EntitySet="CorrectionTypes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Number" Nullable="false" Unicode="true" MaxLength="20" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="DeliveryManagerModel.ClientOrder" FromRole="Order" ToRole="Client" />
+          <Property Type="Int32" Name="ClientId" Nullable="false" />
+          <NavigationProperty Name="OrderEntries" Relationship="DeliveryManagerModel.OrderOrderEntry" FromRole="Order" ToRole="OrderEntry" />
+          <NavigationProperty Name="Delivery" Relationship="DeliveryManagerModel.OrderDelivery" FromRole="Order" ToRole="Delivery" />
+          <Property Type="Int32" Name="DeliveryId" Nullable="true" />
+          <Property Type="Boolean" Name="WithoutDelivery" Nullable="false" DefaultValue="False" />
+        </EntityType>
+        <EntityType Name="Delivery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="String" Name="Notes" Unicode="true" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="Status" Nullable="false" Unicode="true" MaxLength="150" />
+          <Property Name="Address" Type="DeliveryManagerModel.Address" Nullable="false" />
+          <NavigationProperty Name="DeliveryType" Relationship="DeliveryManagerModel.DeliveryTypeDelivery" FromRole="Delivery" ToRole="DeliveryType" />
+          <Property Type="Int32" Name="DeliveryTypeId" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="DeliveryManagerModel.OrderDelivery" FromRole="Delivery" ToRole="Order" />
+          <NavigationProperty Name="Courier" Relationship="DeliveryManagerModel.DeliveryCourier" FromRole="Delivery" ToRole="Courier" />
+          <Property Type="Int32" Name="CourierId" Nullable="true" />
+        </EntityType>
+        <EntityType Name="DeliveryEntity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Type="Decimal" Name="Cost" Nullable="false" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="Book" BaseType="DeliveryManagerModel.DeliveryEntity" >
+          <Property Type="String" Name="ISBN" Unicode="true" Nullable="true" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="CD" BaseType="DeliveryManagerModel.DeliveryEntity" >
+          <Property Type="String" Name="Format" Unicode="true" Nullable="true" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Phone" Nullable="false" Unicode="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Unicode="true" Nullable="true" MaxLength="150" />
+          <Property Name="FullName" Type="DeliveryManagerModel.FullName" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client" BaseType="DeliveryManagerModel.User" >
+          <NavigationProperty Name="Orders" Relationship="DeliveryManagerModel.ClientOrder" FromRole="Client" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Courier" BaseType="DeliveryManagerModel.User" >
+          <NavigationProperty Name="Deliveries" Relationship="DeliveryManagerModel.DeliveryCourier" FromRole="Courier" ToRole="Delivery" />
+        </EntityType>
+        <Association Name="ClientOrder">
+          <End Type="DeliveryManagerModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="DeliveryManagerModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Address" >
+          <Property Type="String" Name="Details" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Type="String" Name="City" Nullable="false" Unicode="true" DefaultValue="Санкт-Петербург" MaxLength="300" />
+          <Property Type="String" Name="Country" Unicode="true" Nullable="false" DefaultValue="Россия" MaxLength="300" />
+          <Property Type="String" Name="ZipCode" Unicode="true" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="FullName">
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" MaxLength="300" />
+          <Property Type="String" Name="MiddleName" Nullable="true" Unicode="true" MaxLength="300" />
+          <Property Type="String" Name="Surname" Nullable="true" Unicode="true" MaxLength="300" />
+        </ComplexType>
+        <EntityType Name="DeliveryType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" MaxLength="250" />
+          <Property Type="Decimal" Name="Cost" Nullable="false" Precision="18" Scale="4" />
+          <NavigationProperty Name="Deliveries" Relationship="DeliveryManagerModel.DeliveryTypeDelivery" FromRole="DeliveryType" ToRole="Delivery" />
+          <Property Type="Boolean" Name="IsDefault" Nullable="false" DefaultValue="false" />
+        </EntityType>
+        <EntityType Name="Depot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" MaxLength="150" />
+          <Property Name="Address" Type="DeliveryManagerModel.Address" Nullable="false" />
+          <NavigationProperty Name="DepotEntries" Relationship="DeliveryManagerModel.DepotDepotEntry" FromRole="Depot" ToRole="DepotEntry" />
+        </EntityType>
+        <Association Name="DeliveryTypeDelivery">
+          <End Type="DeliveryManagerModel.DeliveryType" Role="DeliveryType" Multiplicity="1" />
+          <End Type="DeliveryManagerModel.Delivery" Role="Delivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Delivery">
+              <PropertyRef Name="DeliveryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Entry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Count" Nullable="false" />
+          <NavigationProperty Name="DeliveryEntity" Relationship="DeliveryManagerModel.EntryDeliveryEntity" FromRole="Entry" ToRole="DeliveryEntity" />
+          <Property Type="Int32" Name="DeliveryEntityId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DepotEntry" BaseType="DeliveryManagerModel.Entry" >
+          <NavigationProperty Name="Depot" Relationship="DeliveryManagerModel.DepotDepotEntry" FromRole="DepotEntry" ToRole="Depot" />
+          <Property Type="Int32" Name="DepotId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderEntry" BaseType="DeliveryManagerModel.Entry" >
+          <NavigationProperty Name="Order" Relationship="DeliveryManagerModel.OrderOrderEntry" FromRole="OrderEntry" ToRole="Order" />
+          <Property Type="Int32" Name="OrderId" Nullable="false" />
+          <NavigationProperty Name="DepotEntry" Relationship="DeliveryManagerModel.DepotEntryOrderEntry" FromRole="OrderEntry" ToRole="DepotEntry" />
+          <Property Type="Decimal" Name="Cost" Nullable="false" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+        </EntityType>
+        <Association Name="DepotDepotEntry">
+          <End Type="DeliveryManagerModel.Depot" Role="Depot" Multiplicity="1" />
+          <End Type="DeliveryManagerModel.DepotEntry" Role="DepotEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Depot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DepotEntry">
+              <PropertyRef Name="DepotId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderOrderEntry">
+          <End Type="DeliveryManagerModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="DeliveryManagerModel.OrderEntry" Role="OrderEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderEntry">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepotEntryOrderEntry">
+          <End Type="DeliveryManagerModel.DepotEntry" Multiplicity="1" Role="DepotEntry" />
+          <End Type="DeliveryManagerModel.OrderEntry" Multiplicity="*" Role="OrderEntry" />
+        </Association>
+        <Association Name="EntryDeliveryEntity">
+          <End Type="DeliveryManagerModel.Entry" Role="Entry" Multiplicity="*" />
+          <End Type="DeliveryManagerModel.DeliveryEntity" Role="DeliveryEntity" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryEntity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Entry">
+              <PropertyRef Name="DeliveryEntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderDelivery">
+          <End Type="DeliveryManagerModel.Order" Role="Order" Multiplicity="*" />
+          <End Type="DeliveryManagerModel.Delivery" Role="Delivery" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Delivery">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="DeliveryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeliveryCourier">
+          <End Type="DeliveryManagerModel.Delivery" Role="Delivery" Multiplicity="*" />
+          <End Type="DeliveryManagerModel.Courier" Role="Courier" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Courier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Delivery">
+              <PropertyRef Name="CourierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CorrectionEntry" BaseType="DeliveryManagerModel.Entry" >
+          <NavigationProperty Name="DepotEntry" Relationship="DeliveryManagerModel.DepotEntryCorrectionEntry" FromRole="CorrectionEntry" ToRole="DepotEntry" />
+          <NavigationProperty Name="Correction" Relationship="DeliveryManagerModel.CorrectionCorrectionEntry" FromRole="CorrectionEntry" ToRole="Correction" />
+          <Property Type="Int32" Name="CorrectionId" Nullable="false" />
+          <Property Type="Decimal" Name="Cost" Nullable="false" Precision="18" Scale="4" />
+        </EntityType>
+        <Association Name="DepotEntryCorrectionEntry">
+          <End Type="DeliveryManagerModel.DepotEntry" Role="DepotEntry" Multiplicity="1" />
+          <End Type="DeliveryManagerModel.CorrectionEntry" Role="CorrectionEntry" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CorrectionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" MaxLength="250" />
+          <Property Type="Boolean" Name="IsNegative" Nullable="false" DefaultValue="False" />
+          <NavigationProperty Name="Corrections" Relationship="DeliveryManagerModel.CorrectionCorrectionType" FromRole="CorrectionType" ToRole="Correction" />
+        </EntityType>
+        <EntityType Name="Correction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <NavigationProperty Name="CorrectionEntries" Relationship="DeliveryManagerModel.CorrectionCorrectionEntry" FromRole="Correction" ToRole="CorrectionEntry" />
+          <NavigationProperty Name="CorrectionType" Relationship="DeliveryManagerModel.CorrectionCorrectionType" FromRole="Correction" ToRole="CorrectionType" />
+          <Property Type="Int32" Name="CorrectionTypeId" Nullable="false" />
+        </EntityType>
+        <Association Name="CorrectionCorrectionEntry">
+          <End Type="DeliveryManagerModel.Correction" Role="Correction" Multiplicity="1" />
+          <End Type="DeliveryManagerModel.CorrectionEntry" Role="CorrectionEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Correction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CorrectionEntry">
+              <PropertyRef Name="CorrectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CorrectionCorrectionType">
+          <End Type="DeliveryManagerModel.Correction" Role="Correction" Multiplicity="*" />
+          <End Type="DeliveryManagerModel.CorrectionType" Role="CorrectionType" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="CorrectionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Correction">
+              <PropertyRef Name="CorrectionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DeliveryManagerModelStoreContainer" CdmEntityContainer="DeliveryManagerModelContainer">
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.Order)">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="DeliveryId" ColumnName="DeliveryId" />
+          <ScalarProperty Name="WithoutDelivery" ColumnName="WithoutDelivery" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deliveries">
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.Delivery)">
+        <MappingFragment StoreEntitySet="Deliveries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ComplexProperty Name="Address" TypeName="DeliveryManagerModel.Address">
+            <ScalarProperty Name="Details" ColumnName="Address_Details" />
+            <ScalarProperty Name="City" ColumnName="Address_City" />
+            <ScalarProperty Name="Country" ColumnName="Address_Country" />
+            <ScalarProperty Name="ZipCode" ColumnName="Address_ZipCode" />
+          </ComplexProperty>
+          <ScalarProperty Name="DeliveryTypeId" ColumnName="DeliveryTypeId" />
+          <ScalarProperty Name="CourierId" ColumnName="CourierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryEntities">
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.DeliveryEntity)">
+        <MappingFragment StoreEntitySet="DeliveryEntities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.Book)">
+        <MappingFragment StoreEntitySet="DeliveryEntities_Book">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.CD)">
+        <MappingFragment StoreEntitySet="DeliveryEntities_CD">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Format" ColumnName="Format" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ComplexProperty Name="FullName" TypeName="DeliveryManagerModel.FullName">
+            <ScalarProperty Name="Name" ColumnName="FullName_Name" />
+            <ScalarProperty Name="MiddleName" ColumnName="FullName_MiddleName" />
+            <ScalarProperty Name="Surname" ColumnName="FullName_Surname" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.Client)">
+        <MappingFragment StoreEntitySet="Users_Client">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.Courier)">
+        <MappingFragment StoreEntitySet="Users_Courier">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.DeliveryType)">
+        <MappingFragment StoreEntitySet="DeliveryTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Depots">
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.Depot)">
+        <MappingFragment StoreEntitySet="Depots">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ComplexProperty Name="Address" TypeName="DeliveryManagerModel.Address">
+            <ScalarProperty Name="Details" ColumnName="Address_Details" />
+            <ScalarProperty Name="City" ColumnName="Address_City" />
+            <ScalarProperty Name="Country" ColumnName="Address_Country" />
+            <ScalarProperty Name="ZipCode" ColumnName="Address_ZipCode" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entries">
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.Entry)">
+        <MappingFragment StoreEntitySet="Entries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="DeliveryEntityId" ColumnName="DeliveryEntityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.DepotEntry)">
+        <MappingFragment StoreEntitySet="Entries_DepotEntry">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepotId" ColumnName="DepotId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.OrderEntry)">
+        <MappingFragment StoreEntitySet="Entries_OrderEntry">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.CorrectionEntry)">
+        <MappingFragment StoreEntitySet="Entries_CorrectionEntry">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CorrectionId" ColumnName="CorrectionId" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CorrectionTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.CorrectionType)">
+        <MappingFragment StoreEntitySet="CorrectionTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsNegative" ColumnName="IsNegative" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Corrections">
+      <EntityTypeMapping TypeName="IsTypeOf(DeliveryManagerModel.Correction)">
+        <MappingFragment StoreEntitySet="Corrections">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="CorrectionTypeId" ColumnName="CorrectionTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DepotEntryOrderEntry" TypeName="DeliveryManagerModel.DepotEntryOrderEntry" StoreEntitySet="Entries_OrderEntry">
+      <EndProperty Name="DepotEntry">
+        <ScalarProperty Name="Id" ColumnName="DepotEntry_Id" />
+      </EndProperty>
+      <EndProperty Name="OrderEntry">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DepotEntryCorrectionEntry" TypeName="DeliveryManagerModel.DepotEntryCorrectionEntry" StoreEntitySet="Entries_CorrectionEntry">
+      <EndProperty Name="DepotEntry">
+        <ScalarProperty Name="Id" ColumnName="DepotEntry_Id" />
+      </EndProperty>
+      <EndProperty Name="CorrectionEntry">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Model1" DisplayType="true" >
+        <EntityTypeShape EntityType="DeliveryManagerModel.Order" Width="1.5" PointX="3.125" PointY="3.125" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="DeliveryManagerModel.Delivery" Width="1.625" PointX="0.75" PointY="3" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="DeliveryManagerModel.DeliveryEntity" Width="1.5" PointX="10.25" PointY="3.625" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="DeliveryManagerModel.Book" Width="1.5" PointX="9.375" PointY="6.125" Height="1.2110807291666674" />
+        <InheritanceConnector EntityType="DeliveryManagerModel.Book" ManuallyRouted="false" >
+          <ConnectorPoint PointX="11" PointY="5.4129850260416674" />
+          <ConnectorPoint PointX="11" PointY="5.75" />
+          <ConnectorPoint PointX="10.125" PointY="5.75" />
+          <ConnectorPoint PointX="10.125" PointY="6.125" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="DeliveryManagerModel.CD" Width="1.5" PointX="11.125" PointY="6.125" Height="1.2110807291666674" />
+        <InheritanceConnector EntityType="DeliveryManagerModel.CD" ManuallyRouted="false" >
+          <ConnectorPoint PointX="11" PointY="5.4129850260416674" />
+          <ConnectorPoint PointX="11" PointY="5.75" />
+          <ConnectorPoint PointX="11.875" PointY="5.75" />
+          <ConnectorPoint PointX="11.875" PointY="6.125" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="DeliveryManagerModel.User" Width="1.5" PointX="1.875" PointY="6.125" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="DeliveryManagerModel.Client" Width="1.5" PointX="3" PointY="8.5" Height="1.2110807291666674" />
+        <InheritanceConnector EntityType="DeliveryManagerModel.Client" ManuallyRouted="false" >
+          <ConnectorPoint PointX="2.625" PointY="7.9129850260416674" />
+          <ConnectorPoint PointX="2.625" PointY="8.2" />
+          <ConnectorPoint PointX="3.75" PointY="8.2" />
+          <ConnectorPoint PointX="3.75" PointY="8.5" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="DeliveryManagerModel.Courier" Width="1.5" PointX="0.875" PointY="8.5" Height="1.2110807291666674" />
+        <InheritanceConnector EntityType="DeliveryManagerModel.Courier" ManuallyRouted="false" >
+          <ConnectorPoint PointX="2.625" PointY="7.9129850260416674" />
+          <ConnectorPoint PointX="2.625" PointY="8.2" />
+          <ConnectorPoint PointX="1.625" PointY="8.2" />
+          <ConnectorPoint PointX="1.625" PointY="8.5" />
+        </InheritanceConnector>
+        <AssociationConnector Association="DeliveryManagerModel.ClientOrder">
+          <ConnectorPoint PointX="4.1875" PointY="8.5" />
+          <ConnectorPoint PointX="4.1875" PointY="5.8744921875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DeliveryManagerModel.DeliveryType" Width="1.5" PointX="0.875" PointY="0.5" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="DeliveryManagerModel.Depot" Width="1.5" PointX="3.125" PointY="0.5" Height="1.787985026041667" />
+        <AssociationConnector Association="DeliveryManagerModel.DeliveryTypeDelivery">
+          <ConnectorPoint PointX="1.625" PointY="2.4802864583333335" />
+          <ConnectorPoint PointX="1.625" PointY="3" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DeliveryManagerModel.Entry" Width="1.5" PointX="7.375" PointY="3.5" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="DeliveryManagerModel.DepotEntry" Width="1.5" PointX="5.25" PointY="0.625" Height="1.4033821614583335" />
+        <InheritanceConnector EntityType="DeliveryManagerModel.DepotEntry" ManuallyRouted="false" >
+          <ConnectorPoint PointX="8.125" PointY="3.5" />
+          <ConnectorPoint PointX="8.125" PointY="3.125" />
+          <ConnectorPoint PointX="6.2418316015266528" PointY="3.125" />
+          <ConnectorPoint PointX="6.2418316015266528" PointY="2.0283821614583335" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="DeliveryManagerModel.OrderEntry" Width="1.5" PointX="5.25" PointY="3.875" Height="1.9802864583333326" />
+        <InheritanceConnector EntityType="DeliveryManagerModel.OrderEntry" ManuallyRouted="false" >
+          <ConnectorPoint PointX="7.375" PointY="4.5814925130208328" />
+          <ConnectorPoint PointX="6.75" PointY="4.5814925130208328" />
+        </InheritanceConnector>
+        <AssociationConnector Association="DeliveryManagerModel.DepotDepotEntry">
+          <ConnectorPoint PointX="4.625" PointY="1.3266910807291668" />
+          <ConnectorPoint PointX="5.25" PointY="1.3266910807291668" />
+        </AssociationConnector>
+        <AssociationConnector Association="DeliveryManagerModel.OrderOrderEntry">
+          <ConnectorPoint PointX="4.625" PointY="4.8651432291666659" />
+          <ConnectorPoint PointX="5.25" PointY="4.8651432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="DeliveryManagerModel.DepotEntryOrderEntry" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.8025726766398495" PointY="2.0283821614583335" />
+          <ConnectorPoint PointX="5.8025726766398495" PointY="3.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="DeliveryManagerModel.EntryDeliveryEntity">
+          <ConnectorPoint PointX="8.875" PointY="4.5429134114583336" />
+          <ConnectorPoint PointX="10.25" PointY="4.5429134114583336" />
+        </AssociationConnector>
+        <AssociationConnector Association="DeliveryManagerModel.OrderDelivery">
+          <ConnectorPoint PointX="3.125" PointY="4.49974609375" />
+          <ConnectorPoint PointX="2.375" PointY="4.49974609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DeliveryManagerModel.DeliveryCourier">
+          <ConnectorPoint PointX="1.1875" PointY="5.9417936197916656" />
+          <ConnectorPoint PointX="1.1875" PointY="8.5" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DeliveryManagerModel.CorrectionEntry" Width="1.5" PointX="7.375" PointY="0.625" Height="1.7879850260416665" />
+        <AssociationConnector Association="DeliveryManagerModel.DepotEntryCorrectionEntry">
+          <ConnectorPoint PointX="6.75" PointY="1.3266910807291672" />
+          <ConnectorPoint PointX="7.375" PointY="1.3266910807291672" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DeliveryManagerModel.CorrectionType" Width="1.5" PointX="12.125" PointY="0.625" Height="1.7879850260416665" />
+        <InheritanceConnector EntityType="DeliveryManagerModel.CorrectionEntry" ManuallyRouted="false" >
+          <ConnectorPoint PointX="8.125" PointY="3.5" />
+          <ConnectorPoint PointX="8.125" PointY="2.4129850260416665" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="DeliveryManagerModel.Correction" Width="1.5" PointX="9.875" PointY="0.625" Height="1.9802864583333326" />
+        <AssociationConnector Association="DeliveryManagerModel.CorrectionCorrectionEntry">
+          <ConnectorPoint PointX="9.875" PointY="1.5189925130208335" />
+          <ConnectorPoint PointX="8.875" PointY="1.5189925130208335" />
+        </AssociationConnector>
+        <AssociationConnector Association="DeliveryManagerModel.CorrectionCorrectionType">
+          <ConnectorPoint PointX="11.375" PointY="1.5189925130208333" />
+          <ConnectorPoint PointX="12.125" PointY="1.5189925130208333" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
