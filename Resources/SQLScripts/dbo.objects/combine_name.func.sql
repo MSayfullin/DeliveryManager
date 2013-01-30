@@ -1,4 +1,3 @@
-
 /****** Object:  UserDefinedFunction [dbo].[combine_name]    Script Date: 01/23/2011 13:56:41 ******/
 SET ANSI_NULLS ON
 GO
@@ -20,7 +19,7 @@ CREATE FUNCTION [dbo].[combine_name]
 RETURNS varchar(MAX)
 AS
 BEGIN
-	DECLARE @combined_name varchar(MAX)
+	DECLARE @combined_name varchar(900)
 
 	SELECT @combined_name =
 		CASE
